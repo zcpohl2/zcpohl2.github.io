@@ -75,7 +75,8 @@ async function loadSceneOne() {
         .data(legend_keys)   
         .enter() 
         .append("text").text(function (d) {return d;})
-        .attr("transform", "translate(15,9)");
+        .attr("x", 10)
+        .attr("y", function(d, i) {return 10 + (20 * i)})
 
     lineLegend.selectAll("rect")
         .data(legend_keys)
@@ -83,6 +84,7 @@ async function loadSceneOne() {
         .append("rect")
         .attr("fill", function (d, i) {return color_band(d); })
         .attr("width", 10).attr("height", 10);
+        .attr("y", function(d, i) {return (20 * i)})
 
 }
 
