@@ -71,12 +71,14 @@ async function loadSceneOne() {
 
     var lineLegend = svg.append("g").attr("transform", "translate(600,-25)");
 
-    lineLegend.data(legend_keys)   
+    lineLegend.selectAll("text")
+        .data(legend_keys)   
         .enter() 
         .append("text").text(function (d) {return d;})
         .attr("transform", "translate(15,9)");
 
-    lineLegend.data(legend_keys)
+    lineLegend.selectAll("rect")
+        .data(legend_keys)
         .enter()   
         .append("rect")
         .attr("fill", function (d, i) {return color_band(d); })
