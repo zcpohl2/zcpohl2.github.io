@@ -416,7 +416,8 @@ async function changeScenes() {
 
 async function addAnnotations() {
     
-    const annotations = [{
+    const annotations = [
+        {
           note: {
             label: "Electric car in a category of their own with MPG well over 50mpg",
             title: "d3.annotationLabel",
@@ -424,11 +425,13 @@ async function addAnnotations() {
             align: "left"
           },
           connector: {
-            end: "arrow"
+            end: "arrow" // 'dot' also available
           },
-          x: 600,
+          x: 650,
           y: 180,
-        }].map(function(d){ d.color = "red"; return d})
+          dy: 137,
+          dx: 162
+        }].map(function(d){ d.color = "Red"; return d})
 
         const makeAnnotations = d3.annotation()
           .type(d3.annotationLabel)
