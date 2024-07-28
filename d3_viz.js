@@ -100,7 +100,7 @@ async function changeScenes() {
     
     function transition() {
         console.log("Dink")
-        this.text = "Next";
+        this.textContent  = "Next";
     }
 }
 
