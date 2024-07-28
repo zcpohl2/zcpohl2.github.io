@@ -2,8 +2,8 @@ async function loadSceneOne() {
     const data = await d3.csv("https://flunky.github.io/cars2017.csv");
     const svg = d3.select("svg").append("g").attr("transform", "translate(50,50)");
 
-    const x_scale = d3.scaleLog().domain([10, 150]).range([0, 200]);
-    const y_scale = d3.scaleLog().domain([10, 150]).range([200, 0]);
+    const x_scale = d3.scaleLog().domain([10, 150]).range([0, 500]);
+    const y_scale = d3.scaleLog().domain([10, 150]).range([500, 0]);
     const color_band = d3.scaleOrdinal().domain(["Gasoline", "Diesel", "Electricity"]).range(["red", "green", "yellow"])
 
     const xAxis = d3.axisBottom(x_scale)
@@ -19,7 +19,6 @@ async function loadSceneOne() {
         .call(xAxis);
     xAxisG.selectAll("path")
         .attr("stroke", "currentColor")
-        // .attr("d", "M0.5,6V0.5H200.5V6");
     xAxisG.selectAll("line")
         .attr("stroke", "currentColor")
         .attr("y2", "6");
@@ -32,7 +31,6 @@ async function loadSceneOne() {
         .call(yAxis);
     yAxisG.selectAll("path")
         .attr("stroke", "currentColor")
-        .attr("d", "M-6,200.5H0.5V0.5H-6");
     yAxisG.selectAll("line")
         .attr("stroke", "currentColor")
         .attr("x2", "-6");
@@ -47,7 +45,7 @@ async function loadSceneOne() {
         .append("circle")
         .attr("cx", function(d) {return x_scale(d["AverageCityMPG"])})
         .attr("cy", function(d) {return y_scale(d["AverageHighwayMPG"])})
-        .attr("r", 2)
+        .attr("r", 3)
         .attr("fill", function(d) {return color_band(d.Fuel)});
 
 }
