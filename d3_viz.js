@@ -49,13 +49,13 @@ async function loadSceneOne() {
         .attr("dy", "0.32em");
 
     y_axis_element.append("text")
-    .attr("transform", "rotate(-90)")
-    .attr("y", -40)
-    .attr("x", -250)
-    .style("text-anchor", "middle")
-    .style("font-size", "20px")
-    .attr("fill", "black")
-    .text("Average Highway MPG");
+        .attr("transform", "rotate(-90)")
+        .attr("y", -40)
+        .attr("x", -250)
+        .style("text-anchor", "middle")
+        .style("font-size", "20px")
+        .attr("fill", "black")
+        .text("Average Highway MPG");
         
     four_cyl_data = data.filter(d => d.EngineCylinders < 5);
     svg.selectAll("circle")
@@ -75,9 +75,9 @@ async function loadSceneOne() {
         .append("text").text(function (d) {return d;})
         .attr("transform", "translate(15,9)");
 
-    lineLegend.data(four_cyl_data)
+    lineLegend.data(legend_keys)   
         .append("rect")
-        .attr("fill", function (d, i) {return color_band(d.Fuel); })
+        .attr("fill", function (d, i) {return color_band(d); })
         .attr("width", 10).attr("height", 10);
 
 }
