@@ -83,7 +83,7 @@ async function loadSceneOne() {
         .enter()   
         .append("rect")
         .attr("fill", function (d, i) {return color_band(d); })
-        .attr("width", 10).attr("height", 10);
+        .attr("width", 10).attr("height", 10)
         .attr("y", function(d, i) {return (20 * i)})
 
 }
