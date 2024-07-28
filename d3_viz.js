@@ -1,6 +1,6 @@
 async function loadSceneOne() {
     const data = await d3.csv("https://flunky.github.io/cars2017.csv");
-    const svg = d3.select("svg").append("g").attr("transform", "translate(50,50)");
+    const svg = d3.select("svg").append("g").attr("transform", "translate(100,50)");
 
     const x_scale = d3.scaleLog().domain([10, 150]).range([0, 500]);
     const y_scale = d3.scaleLog().domain([10, 150]).range([500, 0]);
@@ -43,11 +43,10 @@ async function loadSceneOne() {
         yAxisG.append("text")
         .attr("class", "axis-title")
         .attr("transform", "rotate(-90)")
-        .attr("y", 6)
-        .attr("dy", ".6em")
-        .style("text-anchor", "end")
-        .attr("fill", "#5D6971")
-        .text("Population)");
+        .attr("y", -40)
+        .attr("x", -150)
+        .style("font-size", "30px")
+        .text("Average Highway MPG)");
     
 
     four_cyl_data = data.filter(d => d.EngineCylinders < 5);
