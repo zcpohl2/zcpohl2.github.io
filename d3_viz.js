@@ -57,13 +57,13 @@ async function loadSceneOne() {
         .attr("fill", "black")
         .text("Average Highway MPG");
     
-    y_axis_element.append("text")
-        .attr("y", -50)
-        .attr("x", 0)
-        .style("text-anchor", "Start")
-        .style("font-size", "30px")
-        .attr("fill", "black")
-        .text("City vs Highway MPG in Cars with 4 Cylinders or less");
+    // y_axis_element.append("text")
+    //     .attr("y", -50)
+    //     .attr("x", 0)
+    //     .style("text-anchor", "Start")
+    //     .style("font-size", "30px")
+    //     .attr("fill", "black")
+    //     .text("City vs Highway MPG in Cars with 4 Cylinders or less");
         
     four_cyl_data = data.filter(d => d.EngineCylinders < 5);
     svg.selectAll("circle")
@@ -94,5 +94,12 @@ async function loadSceneOne() {
         .attr("width", 10).attr("height", 10)
         .attr("y", function(d, i) {return (20 * i)})
 
+}
+async function changeScenes() {
+    d3.select("#scenes").on("click", transition());
+    
+    function transition() {
+        this.text = "Next";
+    }
 }
 
