@@ -56,6 +56,14 @@ async function loadSceneOne() {
         .style("font-size", "20px")
         .attr("fill", "black")
         .text("Average Highway MPG");
+    
+    y_axis_element.append("text")
+        .attr("y", 40)
+        .attr("x", 100)
+        .style("text-anchor", "Start")
+        .style("font-size", "30px")
+        .attr("fill", "black")
+        .text("City vs Highway MPG in Cars with 4 Cylinders or less");
         
     four_cyl_data = data.filter(d => d.EngineCylinders < 5);
     svg.selectAll("circle")
