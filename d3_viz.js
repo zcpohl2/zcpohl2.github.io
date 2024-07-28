@@ -429,8 +429,8 @@ async function addAnnotations() {
           },
           x: 650,
           y: 180,
-          dy: 137,
-          dx: 162
+          dy: 50,
+          dx: 50
         },
         {
             note: {
@@ -442,8 +442,8 @@ async function addAnnotations() {
             connector: {
               end: "arrow" // 'dot' also available
             },
-            x: 300,
-            y: 300,
+            x: 375,
+            y: 400,
             dy: 50,
             dx: 50
           }].map(function(d){ d.color = "Red"; return d})
