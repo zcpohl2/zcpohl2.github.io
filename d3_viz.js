@@ -414,3 +414,41 @@ async function changeScenes() {
     }
 }
 
+async function addAnnotations() {
+    
+    const annotations = [
+        {
+          note: {
+            label: "Basic settings with subject position(x,y) and a note offset(dx, dy)",
+            title: "d3.annotationLabel"
+          },
+          x: 50,
+          y: 150,
+          dy: 137,
+          dx: 162
+        },{
+          note: {
+            label: "Added connector end 'arrow', note wrap '180', and note align 'left'",
+            title: "d3.annotationLabel",
+            wrap: 150,
+            align: "left"
+          },
+          connector: {
+            end: "arrow" // 'dot' also available
+          },
+          x: 170,
+          y: 150,
+          dy: 137,
+          dx: 162
+        }].map(function(d){ d.color = "#E8336D"; return d})
+
+        const makeAnnotations = d3.annotation()
+          .type(d3.annotationLabel)
+          .annotations(annotations)
+
+        d3.select("svg")
+          .append("g")
+          .attr("class", "annotation-group")
+          .call(makeAnnotations)
+
+}
