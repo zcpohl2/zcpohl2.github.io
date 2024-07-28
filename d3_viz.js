@@ -196,7 +196,7 @@ async function loadSceneTwo() {
 
 async function loadSceneThree() {
     const data = await d3.csv("https://flunky.github.io/cars2017.csv");
-    const svg = d3.select("#scene_two").append("g").attr("transform", "translate(150,100)");
+    const svg = d3.select("#scene_three").append("g").attr("transform", "translate(150,100)");
 
     const x_scale = d3.scaleLog().domain([10, 150]).range([0, 500]);
     const y_scale = d3.scaleLog().domain([10, 150]).range([500, 0]);
@@ -294,7 +294,7 @@ async function loadSceneThree() {
 
 async function loadSceneFour() {
     const data = await d3.csv("https://flunky.github.io/cars2017.csv");
-    const svg = d3.select("#scene_two").append("g").attr("transform", "translate(150,100)");
+    const svg = d3.select("#scene_four").append("g").attr("transform", "translate(150,100)");
 
     const x_scale = d3.scaleLog().domain([10, 150]).range([0, 500]);
     const y_scale = d3.scaleLog().domain([10, 150]).range([500, 0]);
