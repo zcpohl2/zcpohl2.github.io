@@ -43,10 +43,13 @@ async function loadSceneOne() {
         yAxisG.append("text")
         .attr("transform", "rotate(-90)")
         .attr("y", -40)
-        .attr("x", -150)
+        .attr("x", 0)
         .style("text-anchor", "end")
+        .style("font-size", "30px")
         .attr("fill", "#5D6971")
         .text("Average Highway MPG)");
+        
+        
         
     
 
