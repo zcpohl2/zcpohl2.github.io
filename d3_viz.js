@@ -75,7 +75,7 @@ async function loadSceneOne() {
         .data(legend_keys)   
         .enter() 
         .append("text").text(function (d) {return d;})
-        .attr("x", 10)
+        .attr("x", 15)
         .attr("y", function(d, i) {return 10 + (20 * i)})
 
     lineLegend.selectAll("rect")
