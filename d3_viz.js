@@ -41,12 +41,13 @@ async function loadSceneOne() {
         .attr("dy", "0.32em");
 
         yAxisG.append("text")
-        .attr("class", "axis-title")
         .attr("transform", "rotate(-90)")
         .attr("y", -40)
         .attr("x", -150)
-        .style("font-size", "30px")
+        .style("text-anchor", "end")
+        .attr("fill", "#5D6971")
         .text("Average Highway MPG)");
+        
     
 
     four_cyl_data = data.filter(d => d.EngineCylinders < 5);
