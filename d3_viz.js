@@ -4,7 +4,7 @@ async function loadSceneOne() {
 
     const x_scale = d3.scaleLinear().domain([10, 150]).range([0, 200]);
     const y_scale = d3.scaleLinear().domain([10, 150]).range([200, 0]);
-    const color_band = d3.scaleBand().domain(["Gasoline", "Diesel", "Electricity"]).range("red", "green", "yellow")
+    const color_band = d3.scaleOrdinal().domain(["Gasoline", "Diesel", "Electricity"]).range("red", "green", "yellow")
 
     const xAxis = d3.axisBottom(x_scale)
         .tickValues([10, 20, 50, 100])
