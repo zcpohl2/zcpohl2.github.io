@@ -28,9 +28,9 @@ async function loadSceneOne() {
         .attr("dy", "0.71em");
 
     xAxisG.append("text")
-        .attr("y", -40)
-        .attr("x", 0)
-        .style("text-anchor", "end")
+        .attr("y", 40)
+        .attr("x", 250)
+        .style("text-anchor", "middle")
         .style("font-size", "20px")
         .attr("fill", "black")
         .text("Average City MPG");
@@ -51,8 +51,8 @@ async function loadSceneOne() {
     yAxisG.append("text")
     .attr("transform", "rotate(-90)")
     .attr("y", -40)
-    .attr("x", 0)
-    .style("text-anchor", "end")
+    .attr("x", -250)
+    .style("text-anchor", "middle")
     .style("font-size", "20px")
     .attr("fill", "black")
     .text("Average Highway MPG");
