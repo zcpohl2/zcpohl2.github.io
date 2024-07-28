@@ -2,8 +2,8 @@ async function loadSceneOne() {
     const data = await d3.csv("https://flunky.github.io/cars2017.csv");
     const svg = d3.select("svg").append("g").attr("transform", "translate(50,50)");
 
-    const xScale = d3.scaleLog().domain([10, 150]).range([0, 1000]);
-    const yScale = d3.scaleLog().domain([10, 150]).range([1000, 0]);
+    const xScale = d3.scaleLog().domain([10, 150]).range([0, 200]);
+    const yScale = d3.scaleLog().domain([10, 150]).range([200, 0]);
 
     const xAxis = d3.axisBottom(xScale)
         .tickValues([10, 20, 50, 100])
