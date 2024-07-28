@@ -27,6 +27,14 @@ async function loadSceneOne() {
         .attr("y", "9")
         .attr("dy", "0.71em");
 
+    xAxisG.append("text")
+        .attr("y", -40)
+        .attr("x", 0)
+        .style("text-anchor", "end")
+        .style("font-size", "20px")
+        .attr("fill", "black")
+        .text("Average City MPG");
+
    
     const yAxisG = svg.append("g")
         .call(yAxis);
@@ -40,14 +48,14 @@ async function loadSceneOne() {
         .attr("x", "-9")
         .attr("dy", "0.32em");
 
-        yAxisG.append("text")
-        .attr("transform", "rotate(-90)")
-        .attr("y", -40)
-        .attr("x", 0)
-        .style("text-anchor", "end")
-        .style("font-size", "30px")
-        .attr("fill", "#5D6971")
-        .text("Average Highway MPG)");
+    yAxisG.append("text")
+    .attr("transform", "rotate(-90)")
+    .attr("y", -40)
+    .attr("x", 0)
+    .style("text-anchor", "end")
+    .style("font-size", "20px")
+    .attr("fill", "black")
+    .text("Average Highway MPG");
         
         
         
