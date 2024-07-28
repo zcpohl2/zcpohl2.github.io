@@ -1,33 +1,33 @@
 async function loadSceneOne() {
     const data = await d3.csv("https://flunky.github.io/cars2017.csv");
-    const svg = d3.select("svg").append("g").attr("transform", "translate(100,50)");
+    const svg = d3.select("svg").append("g").attr("transform", "translate(150,100)");
 
     const x_scale = d3.scaleLog().domain([10, 150]).range([0, 500]);
     const y_scale = d3.scaleLog().domain([10, 150]).range([500, 0]);
     const color_band = d3.scaleOrdinal().domain(["Gasoline", "Diesel", "Electricity"]).range(["red", "green", "yellow"])
 
-    const xAxis = d3.axisBottom(x_scale)
+    const x_axis = d3.axisBottom(x_scale)
         .tickValues([10, 20, 50, 100])
         .tickFormat(d3.format("~s"));
 
-    const yAxis = d3.axisLeft(y_scale)
+    const y_axis = d3.axisLeft(y_scale)
         .tickValues([10, 20, 50, 100])
         .tickFormat(d3.format("~s"));
 
-    const xAxisG = svg.append("g")
+    const x_axis_element = svg.append("g")
         .attr("transform", "translate(0,500)")
-        .call(xAxis);
-    xAxisG.selectAll("path")
+        .call(x_axis);
+    x_axis_element.selectAll("path")
         .attr("stroke", "currentColor")
-    xAxisG.selectAll("line")
+    x_axis_element.selectAll("line")
         .attr("stroke", "currentColor")
         .attr("y2", "6");
-    xAxisG.selectAll("text")
+    x_axis_element.selectAll("text")
         .attr("fill", "currentColor")
         .attr("y", "9")
         .attr("dy", "0.71em");
 
-    xAxisG.append("text")
+    x_axis_element.append("text")
         .attr("y", 40)
         .attr("x", 250)
         .style("text-anchor", "middle")
@@ -36,19 +36,19 @@ async function loadSceneOne() {
         .text("Average City MPG");
 
    
-    const yAxisG = svg.append("g")
-        .call(yAxis);
-    yAxisG.selectAll("path")
+    const y_axis_element = svg.append("g")
+        .call(y_axis);
+    y_axis_element.selectAll("path")
         .attr("stroke", "currentColor")
-    yAxisG.selectAll("line")
+    y_axis_element.selectAll("line")
         .attr("stroke", "currentColor")
         .attr("x2", "-6");
-    yAxisG.selectAll("text")
+    y_axis_element.selectAll("text")
         .attr("fill", "currentColor")
         .attr("x", "-9")
         .attr("dy", "0.32em");
 
-    yAxisG.append("text")
+    y_axis_element.append("text")
     .attr("transform", "rotate(-90)")
     .attr("y", -40)
     .attr("x", -250)
@@ -57,10 +57,6 @@ async function loadSceneOne() {
     .attr("fill", "black")
     .text("Average Highway MPG");
         
-        
-        
-    
-
     four_cyl_data = data.filter(d => d.EngineCylinders < 5);
     svg.selectAll("circle")
         .data(four_cyl_data)
@@ -68,8 +64,21 @@ async function loadSceneOne() {
         .append("circle")
         .attr("cx", function(d) {return x_scale(d.AverageCityMPG)})
         .attr("cy", function(d) {return y_scale(d.AverageHighwayMPG)})
-        .attr("r", 3)
+        .attr("r", 5)
         .attr("fill", function(d) {return color_band(d.Fuel)});
+
+    const legend_keys = ["Gasoline", "Diesel", "Electricity"]
+
+    var lineLegend = svg.append("g").attr("transform", "translate(800,50)");
+
+    lineLegend.data(legend_keys)    
+        .append("text").text(function (d) {return d;})
+        .attr("transform", "translate(15,9)"); //align texts with boxes
+
+    lineLegend.data(four_cyl_data)
+        .append("rect")
+        .attr("fill", function (d, i) {return color_band(d.Fuel); })
+        .attr("width", 10).attr("height", 10);
 
 }
 
