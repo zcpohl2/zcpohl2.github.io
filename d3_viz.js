@@ -96,9 +96,10 @@ async function loadSceneOne() {
 
 }
 async function changeScenes() {
-    d3.select("#scenes").on("click", transition());
+    d3.select("#scenes").on("click", transition);
     
     function transition() {
+        console.log("Dink")
         this.text = "Next";
     }
 }
