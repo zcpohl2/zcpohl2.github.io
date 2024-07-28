@@ -69,11 +69,11 @@ async function loadSceneOne() {
 
     const legend_keys = ["Gasoline", "Diesel", "Electricity"]
 
-    var lineLegend = svg.append("g").attr("transform", "translate(800,50)");
+    var lineLegend = svg.append("g").attr("transform", "translate(600,-25)");
 
     lineLegend.data(legend_keys)    
         .append("text").text(function (d) {return d;})
-        .attr("transform", "translate(15,9)"); //align texts with boxes
+        .attr("transform", "translate(15,9)");
 
     lineLegend.data(four_cyl_data)
         .append("rect")
