@@ -419,8 +419,8 @@ async function addAnnotations() {
     const annotations = [
         {
           note: {
-            label: "Electric car in a category of their own with MPG well over 50mpg",
-            title: "d3.annotationLabel",
+            label: "In a category of their own with MPG well over 50mpg",
+            title: "Electric Cars",
             wrap: 150,
             align: "left"
           },
@@ -431,7 +431,22 @@ async function addAnnotations() {
           y: 180,
           dy: 137,
           dx: 162
-        }].map(function(d){ d.color = "Red"; return d})
+        },
+        {
+            note: {
+              label: "Most cars have slightly better mpg on highway vs. city. Most cars are clustered between 20-50 MPG",
+              title: "Highway better than City",
+              wrap: 150,
+              align: "left"
+            },
+            connector: {
+              end: "arrow" // 'dot' also available
+            },
+            x: 300,
+            y: 300,
+            dy: 50,
+            dx: 50
+          }].map(function(d){ d.color = "Red"; return d})
 
         const makeAnnotations = d3.annotation()
           .type(d3.annotationLabel)
