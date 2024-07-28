@@ -2,8 +2,8 @@ async function loadSceneOne() {
     const data = await d3.csv("https://flunky.github.io/cars2017.csv");
     const svg = d3.select("svg").append("g").attr("transform", "translate(50,50)");
 
-    const x_scale = d3.scaleLog().domain([10, 150]).range([0, 500]);
-    const y_scale = d3.scaleLog().domain([10, 150]).range([500, 0]);
+    const x_scale = d3.scaleLinear().domain([10, 150]).range([0, 500]);
+    const y_scale = d3.scaleLinear().domain([10, 150]).range([500, 0]);
     const color_band = d3.scaleOrdinal().domain(["Gasoline", "Diesel", "Electricity"]).range(["red", "green", "yellow"])
 
     const xAxis = d3.axisBottom(x_scale)
@@ -39,12 +39,13 @@ async function loadSceneOne() {
         .attr("x", "-9")
         .attr("dy", "0.32em");
 
+    four_cyl_data = data.filter(d => d.EngineCylinders < 5);
     svg.selectAll("circle")
-        .data(data)
+        .data(four_cyl_data)
         .enter()
         .append("circle")
-        .attr("cx", function(d) {return x_scale(d["AverageCityMPG"])})
-        .attr("cy", function(d) {return y_scale(d["AverageHighwayMPG"])})
+        .attr("cx", function(d) {return x_scale(d.AverageCityMPG)})
+        .attr("cy", function(d) {return y_scale(d.AverageHighwayMPG)})
         .attr("r", 3)
         .attr("fill", function(d) {return color_band(d.Fuel)});
 
