@@ -27,6 +27,7 @@ async function loadSceneOne() {
         .attr("y", "9")
         .attr("dy", "0.71em");
 
+   
     const yAxisG = svg.append("g")
         .call(yAxis);
     yAxisG.selectAll("path")
@@ -38,6 +39,16 @@ async function loadSceneOne() {
         .attr("fill", "currentColor")
         .attr("x", "-9")
         .attr("dy", "0.32em");
+
+        yAxisG.append("text")
+        .attr("class", "axis-title")
+        .attr("transform", "rotate(-90)")
+        .attr("y", 6)
+        .attr("dy", ".71em")
+        .style("text-anchor", "end")
+        .attr("fill", "#5D6971")
+        .text("Population)");
+    
 
     four_cyl_data = data.filter(d => d.EngineCylinders < 5);
     svg.selectAll("circle")
