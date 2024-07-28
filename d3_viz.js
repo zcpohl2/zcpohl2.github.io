@@ -296,16 +296,16 @@ async function loadSceneFour() {
     const data = await d3.csv("https://flunky.github.io/cars2017.csv");
     const svg = d3.select("#scene_four").append("g").attr("transform", "translate(150,100)");
 
-    const x_scale = d3.scaleLog().domain([10, 150]).range([0, 500]);
-    const y_scale = d3.scaleLog().domain([10, 150]).range([500, 0]);
+    const x_scale = d3.scaleLog().domain([0, 150]).range([0, 500]);
+    const y_scale = d3.scaleLog().domain([0, 150]).range([500, 0]);
     const color_band = d3.scaleOrdinal().domain(["Gasoline", "Diesel", "Electricity"]).range(["red", "green", "yellow"])
 
     const x_axis = d3.axisBottom(x_scale)
-        .tickValues([10, 20, 50, 100])
+        .tickValues([0, 5, 15, 30, 50, 100])
         .tickFormat(d3.format("~s"));
 
     const y_axis = d3.axisLeft(y_scale)
-        .tickValues([10, 20, 50, 100])
+        .tickValues([0, 5, 15, 30, 50, 100])
         .tickFormat(d3.format("~s"));
 
     const x_axis_element = svg.append("g")
@@ -434,7 +434,7 @@ async function addAnnotations() {
         },
         {
             note: {
-              label: "Most cars have slightly better mpg on highway vs. city. Most cars are clustered between 20-50 MPG",
+              label: "Most cars have slightly better mpg on highway vs. city. 4 cylinder and less cars are clustered between 20-50 MPG",
               title: "Highway better than City",
               wrap: 150,
               align: "left"
