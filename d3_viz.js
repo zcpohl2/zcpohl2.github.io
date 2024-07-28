@@ -452,3 +452,12 @@ async function addAnnotations() {
           .call(makeAnnotations)
 
 }
+
+async function LoadViz() {
+    loadSceneOne(); 
+    loadSceneTwo(); 
+    loadSceneThree(); 
+    loadSceneFour(); 
+    changeScenes();
+    addAnnotations();
+}
