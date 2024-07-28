@@ -69,7 +69,7 @@ async function loadSceneOne() {
 
     const legend_keys = ["Gasoline", "Diesel", "Electricity"]
 
-    var lineLegend = svg.append("g").attr("transform", "translate(600,-25)");
+    var lineLegend = svg.append("g").attr("transform", "translate(550,-25)");
 
     lineLegend.selectAll("text")
         .data(legend_keys)   
