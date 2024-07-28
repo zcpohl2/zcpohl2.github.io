@@ -58,8 +58,8 @@ async function loadSceneOne() {
         .text("Average Highway MPG");
     
     y_axis_element.append("text")
-        .attr("y", 40)
-        .attr("x", 100)
+        .attr("y", -50)
+        .attr("x", 0)
         .style("text-anchor", "Start")
         .style("font-size", "30px")
         .attr("fill", "black")
