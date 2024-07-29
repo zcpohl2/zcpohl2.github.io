@@ -376,8 +376,7 @@ async function loadSceneFour() {
         .attr("r", 5)
         .attr("fill", function(d) {return color_band(d.Fuel)})
         .on("mouseover", function(d) {
-            tooltip.text("Pos : " + d.x + ' : ' + d.y);
-       
+            tooltip.text("Make: " + d.Make + "Fuel: " + d.Fuel + "Num of Cylinders: " + d.EngineCylinders + "Avg Highway MPG: " + d.AverageHighwayMPG + + "Avg City MPG: " + d.AverageCityMPG);
             return tooltip.style("visibility", "visible");
           })
           .on("mousemove", function() {
