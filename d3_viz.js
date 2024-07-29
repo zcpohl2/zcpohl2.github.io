@@ -425,7 +425,7 @@ async function addAnnotations() {
             align: "left"
           },
           connector: {
-            end: "arrow" // 'dot' also available
+            end: "arrow"
           },
           x: 650,
           y: 180,
@@ -440,7 +440,7 @@ async function addAnnotations() {
               align: "left"
             },
             connector: {
-              end: "arrow" // 'dot' also available
+              end: "arrow"
             },
             x: 375,
             y: 400,
