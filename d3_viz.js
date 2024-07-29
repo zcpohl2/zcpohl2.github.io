@@ -494,4 +494,7 @@ async function LoadViz() {
     loadSceneFour(); 
     changeScenes();
     addAnnotations();
+    document.getElementById("scene_two").style.display = "None"
+    document.getElementById("scene_three").style.display = "None"
+    document.getElementById("scene_four").style.display = "None"
 }
