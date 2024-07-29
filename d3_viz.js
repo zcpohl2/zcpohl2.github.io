@@ -496,12 +496,13 @@ async function addAnnotations() {
                 align: "left"
             },
             connector: {
-                end: "arrow"
+                end: "arrow",
+                lineType : "horizontal"
             },
-            x: 280,
-            y: 460,
+            x: 300,
+            y: 400,
             dy: 50,
-            dx: 50
+            dx: 25
         }
     ].map(function(d){ d.color = "Red"; return d})
 
