@@ -480,7 +480,7 @@ async function addAnnotations() {
         .type(d3.annotationLabel)
         .annotations(annotations_scene_two)
 
-    d3.select("#scene_three")
+    d3.select("#scene_two")
         .append("g")
         .attr("class", "annotation-group")
         .call(make_scene_two_annotations)
