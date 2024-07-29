@@ -416,47 +416,47 @@ async function changeScenes() {
 
 async function addAnnotations() {
     
-    // const annotations_scene_one = [
-    //     {
-    //       note: {
-    //         label: "In a category of their own with MPG well over 50mpg",
-    //         title: "Electric Cars",
-    //         wrap: 150,
-    //         align: "left"
-    //       },
-    //       connector: {
-    //         end: "arrow"
-    //       },
-    //       x: 650,
-    //       y: 180,
-    //       dy: 50,
-    //       dx: 50
-    //     },
-    //     {
-    //         note: {
-    //           label: "Most cars have slightly better mpg on highway vs. city. 4 cylinder and less cars are clustered between 20-50 MPG",
-    //           title: "Highway better than City",
-    //           wrap: 150,
-    //           align: "left"
-    //         },
-    //         connector: {
-    //           end: "arrow"
-    //         },
-    //         x: 375,
-    //         y: 400,
-    //         dy: 50,
-    //         dx: 50
-    //     }
-    // ].map(function(d){ d.color = "Red"; return d})
+    const annotations_scene_one = [
+        {
+          note: {
+            label: "In a category of their own with MPG well over 50mpg",
+            title: "Electric Cars",
+            wrap: 150,
+            align: "left"
+          },
+          connector: {
+            end: "arrow"
+          },
+          x: 650,
+          y: 180,
+          dy: 50,
+          dx: 50
+        },
+        {
+            note: {
+              label: "Most cars have slightly better mpg on highway vs. city. 4 cylinder and less cars are clustered between 20-50 MPG",
+              title: "Highway better than City",
+              wrap: 150,
+              align: "left"
+            },
+            connector: {
+              end: "arrow"
+            },
+            x: 375,
+            y: 400,
+            dy: 50,
+            dx: 50
+        }
+    ].map(function(d){ d.color = "Red"; return d})
 
-    // const make_scene_one_annotations = d3.annotation()
-    //     .type(d3.annotationLabel)
-    //     .annotations(annotations_scene_one)
+    const make_scene_one_annotations = d3.annotation()
+        .type(d3.annotationLabel)
+        .annotations(annotations_scene_one)
 
-    // d3.select("#scene_one")
-    //     .append("g")
-    //     .attr("class", "annotation-group")
-    //     .call(make_scene_one_annotations)
+    d3.select("#scene_two")
+        .append("g")
+        .attr("class", "annotation-group")
+        .call(make_scene_one_annotations)
 
     const annotations_scene_two = [
         {
@@ -480,7 +480,7 @@ async function addAnnotations() {
         .type(d3.annotationLabel)
         .annotations(annotations_scene_two)
 
-    d3.select("#scene_two")
+    d3.select("#scene_one")
         .append("g")
         .attr("class", "annotation-group")
         .call(make_scene_two_annotations)
