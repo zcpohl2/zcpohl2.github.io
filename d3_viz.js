@@ -301,6 +301,12 @@ async function loadSceneFour() {
     const y_scale = d3.scaleLog().domain([10, 150]).range([500, 0]);
     const color_band = d3.scaleOrdinal().domain(["Gasoline", "Diesel", "Electricity"]).range(["red", "green", "yellow"])
 
+    const tooltip = d3.select("body")
+        .append("div")
+        .style("position", "absolute")
+        .style("z-index", "10")
+        .style("visibility", "hidden")
+
     const x_axis = d3.axisBottom(x_scale)
         .tickValues([10, 20, 50, 100])
         .tickFormat(d3.format("~s"));
@@ -368,7 +374,19 @@ async function loadSceneFour() {
         .attr("cx", function(d) {return x_scale(d.AverageCityMPG)})
         .attr("cy", function(d) {return y_scale(d.AverageHighwayMPG)})
         .attr("r", 5)
-        .attr("fill", function(d) {return color_band(d.Fuel)});
+        .attr("fill", function(d) {return color_band(d.Fuel)})
+        .on("mouseover", function(d) {
+            tooltip.text("Pos : " + d.x + ' : ' + d.y);
+       
+            return tooltip.style("visibility", "visible");
+          })
+          .on("mousemove", function() {
+            return tooltip.style("top",
+              (d3.event.pageY - 10) + "px").style("left", (d3.event.pageX + 10) + "px");
+          })
+          .on("mouseout", function() {
+            return tooltip.style("visibility", "hidden");
+          });
 
     const legend_keys = ["Gasoline", "Diesel", "Electricity"]
 
@@ -388,6 +406,8 @@ async function loadSceneFour() {
         .attr("fill", function (d, i) {return color_band(d); })
         .attr("width", 10).attr("height", 10)
         .attr("y", function(d, i) {return (20 * i)})
+    
+
 
 }
 
@@ -410,7 +430,7 @@ async function changeScenes() {
         else if(this.value == "2") {
             document.getElementById("scene_three").style.display = "None"
             document.getElementById("scene_four").style.display = ""
-            this.value = "3"
+            document.getElementById("scenes").style.display = "None"
         }
 
     }
@@ -514,6 +534,10 @@ async function addAnnotations() {
         .append("g")
         .attr("class", "annotation-group")
         .call(make_scene_three_annotations)
+
+    d3.select("#scene_three")
+    .select()
+    .attr("transform", "rotate(-90)")
 
 }
 
