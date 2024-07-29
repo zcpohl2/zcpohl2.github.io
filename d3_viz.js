@@ -306,6 +306,9 @@ async function loadSceneFour() {
         .style("position", "absolute")
         .style("z-index", "10")
         .style("visibility", "hidden")
+        .style("width", "100px")
+        .style("word-break", "break-all")
+        .style("overflow-wrap", "break-word")
 
     const x_axis = d3.axisBottom(x_scale)
         .tickValues([10, 20, 50, 100])
@@ -376,7 +379,7 @@ async function loadSceneFour() {
         .attr("r", 5)
         .attr("fill", function(d) {return color_band(d.Fuel)})
         .on("mouseover", function(d) {
-            tooltip.text("Make: " + d.Make + "Fuel: " + d.Fuel + "Num of Cylinders: " + d.EngineCylinders + "Avg Highway MPG: " + d.AverageHighwayMPG + + "Avg City MPG: " + d.AverageCityMPG);
+            tooltip.text("Make: " + d.Make + " Fuel: " + d.Fuel + " Num of Cylinders: " + d.EngineCylinders + " Avg Highway MPG: " + d.AverageHighwayMPG + " Avg City MPG: " + d.AverageCityMPG);
             return tooltip.style("visibility", "visible");
           })
           .on("mousemove", function() {
