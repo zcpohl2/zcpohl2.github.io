@@ -306,8 +306,7 @@ async function loadSceneFour() {
         .style("position", "absolute")
         .style("z-index", "10")
         .style("visibility", "hidden")
-        .style("width", "100px")
-        .style("word-break", "break-all")
+        .style("width", "200px")
         .style("overflow-wrap", "break-word")
 
     const x_axis = d3.axisBottom(x_scale)
