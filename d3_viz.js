@@ -397,17 +397,17 @@ async function changeScenes() {
         this.textContent  = "Next";
         if (this.value == "0") {
             document.getElementById("scene_one").style.display = "None"
-            document.getElementById("scene_two").style.display = "inline-block"
+            document.getElementById("scene_two").style.display = ""
             this.value = "1"
         }
         else if(this.value == "1") {
             this.value = "2"
             document.getElementById("scene_two").style.display = "None"
-            document.getElementById("scene_three").style.display = "inline-block"
+            document.getElementById("scene_three").style.display = ""
         }
         else if(this.value == "2") {
             document.getElementById("scene_three").style.display = "None"
-            document.getElementById("scene_four").style.display = "inline-block"
+            document.getElementById("scene_four").style.display = ""
             this.value = "3"
         }
 
