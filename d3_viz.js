@@ -292,20 +292,21 @@ async function loadSceneThree() {
 
 }
 
+
 async function loadSceneFour() {
     const data = await d3.csv("https://flunky.github.io/cars2017.csv");
     const svg = d3.select("#scene_four").append("g").attr("transform", "translate(150,100)");
 
-    const x_scale = d3.scaleLog().domain([0, 150]).range([0, 500]);
-    const y_scale = d3.scaleLog().domain([0, 150]).range([500, 0]);
+    const x_scale = d3.scaleLog().domain([10, 150]).range([0, 500]);
+    const y_scale = d3.scaleLog().domain([10, 150]).range([500, 0]);
     const color_band = d3.scaleOrdinal().domain(["Gasoline", "Diesel", "Electricity"]).range(["red", "green", "yellow"])
 
     const x_axis = d3.axisBottom(x_scale)
-        .tickValues([0, 5, 15, 30, 50, 100])
+        .tickValues([10, 20, 50, 100])
         .tickFormat(d3.format("~s"));
 
     const y_axis = d3.axisLeft(y_scale)
-        .tickValues([0, 5, 15, 30, 50, 100])
+        .tickValues([10, 20, 50, 100])
         .tickFormat(d3.format("~s"));
 
     const x_axis_element = svg.append("g")
@@ -359,8 +360,9 @@ async function loadSceneFour() {
         .attr("fill", "black")
         .text("City vs Highway MPG in All Cars");
         
+    four_cyl_data = data.filter(d => d.EngineCylinders >= 0);
     svg.selectAll("circle")
-        .data(data)
+        .data(four_cyl_data)
         .enter()
         .append("circle")
         .attr("cx", function(d) {return x_scale(d.AverageCityMPG)})
@@ -436,7 +438,7 @@ async function addAnnotations() {
             note: {
               label: "Most cars have slightly better mpg on highway vs. city. 4 cylinder and less cars are clustered between 20-50 MPG",
               title: "Highway better than City",
-              wrap: 150,
+              wrap: 200,
               align: "left"
             },
             connector: {
@@ -463,7 +465,7 @@ async function addAnnotations() {
             note: {
                 label: "Cars with 4-8 cylinders have an mpg ranging 10-30 which is noticeably worse than under 4 cyclinder vehicles",
                 title: "Slightly Worse",
-                wrap: 150,
+                wrap: 200,
                 align: "left"
             },
             connector: {
@@ -484,6 +486,33 @@ async function addAnnotations() {
         .append("g")
         .attr("class", "annotation-group")
         .call(make_scene_two_annotations)
+
+    const annotations_scene_three = [
+        {
+            note: {
+                label: "Cars with more than 8 cylinders have the worst mpg especially city with most falling under 20mpg. Showing a general trend of more cylinders having worse fuel economy.",
+                title: "Even Worse",
+                wrap: 200,
+                align: "left"
+            },
+            connector: {
+                end: "arrow"
+            },
+            x: 280,
+            y: 460,
+            dy: 50,
+            dx: 50
+        }
+    ].map(function(d){ d.color = "Red"; return d})
+
+    const make_scene_three_annotations = d3.annotation()
+        .type(d3.annotationLabel)
+        .annotations(annotations_scene_three)
+
+    d3.select("#scene_three")
+        .append("g")
+        .attr("class", "annotation-group")
+        .call(make_scene_three_annotations)
 
 }
 
