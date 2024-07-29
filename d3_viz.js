@@ -381,10 +381,10 @@ async function loadSceneFour() {
             tooltip.text("Make: " + d.Make + " Fuel: " + d.Fuel + " Num of Cylinders: " + d.EngineCylinders + " Avg Highway MPG: " + d.AverageHighwayMPG + " Avg City MPG: " + d.AverageCityMPG);
             return tooltip.style("visibility", "visible");
           })
-          .on("mousemove", function() {
-            return tooltip.style("top",
-              (d3.event.pageY - 10) + "px").style("left", (d3.event.pageX + 10) + "px");
-          })
+        //   .on("mousemove", function() {
+        //     return tooltip.style("top",
+        //       (d3.event.pageY - 10) + "px").style("left", (d3.event.pageX + 10) + "px");
+        //   })
           .on("mouseout", function() {
             return tooltip.style("visibility", "hidden");
           });
